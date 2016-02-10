@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[UIApplication(BSMobileProvision) getMobileProvision]:UIApplication+BSMobileProvision.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[mobileProvision count]">
+            </PersistentString>
+            <PersistentString
+               value = "[mobileProvision objectForKey:@&quot;DeveloperCertificates&quot;][0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[UIApplication(BSMobileProvision) releaseMode]:UIApplication+BSMobileProvision.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[mobileProvision objectForKey:@&quot;DeveloperCertificates&quot;][0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[IBViewController checkBattery]:IBViewController.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
