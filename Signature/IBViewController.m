@@ -8,9 +8,7 @@
 
 #import "IBViewController.h"
 #import <CoreBluetooth/CoreBluetooth.h>
-#import "AiChecksum.h"
-@import Security;
-
+#import <DeviceChecks/DeviceChecks.h>
 
 @interface IBViewController ()
 
@@ -73,6 +71,8 @@
 
 -(void)checkBattery {
     
+    
+    
     NSString *stateString = nil;
 
     
@@ -101,14 +101,18 @@
     
     NSString *resultString = nil;
     
-#ifdef DEBUG
-    resultString = @"DEBUG mode ON";
+    DeviceChecks* deviceCheckUtilities = [[DeviceChecks alloc] initWithBybassFlag:YES];
     
-#else
     
-    resultString = @"DEBUG mode OFF";
-    
-#endif
+    if([deviceCheckUtilities isCurrentProcessRunningInDebugMode])
+    {
+        resultString = @"DEBUG mode ON";
+    }
+    else
+    {
+        resultString = @"DEBUG mode OFF";
+
+    }
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"DEBUG state"
                                                     message:resultString
@@ -127,9 +131,11 @@
     NSString* filePath = [[NSBundle mainBundle] pathForResource:@"Signature"
                                                          ofType:nil];
     
-    //NSString *fullPath = @""; // do whatever you need to get the full path to your file
-    NSString *md5 = [AiChecksum md5HashOfPath:filePath];
-    NSString *sha1 = [AiChecksum shaHashOfPath:filePath];
+    DeviceChecks* deviceCheckUtilities = [[DeviceChecks alloc] initWithBybassFlag:NO];
+
+    
+    NSString *md5 = [deviceCheckUtilities getMD5:filePath];
+    NSString *sha1 = [deviceCheckUtilities getSHA1:filePath];
     
     NSLog( @"MD5: %@", md5 );
     NSLog( @"SHA1: %@", sha1 );
@@ -166,8 +172,10 @@
 
 - (IBAction)checkJailBrokenTouchUpInside:(id)sender {
     NSString *resultString = nil;
+    
+    DeviceChecks* deviceCheckUtilities = [[DeviceChecks alloc] initWithBybassFlag:NO];
 
-    if([self isJailbroken])
+    if([deviceCheckUtilities isJailbroken])
     {
         resultString = @"Your device is Jailbroken";
 
@@ -186,46 +194,6 @@
     [alert show];
 
     
-}
-
-
--(BOOL)isJailbroken
-{
-#if !(TARGET_IPHONE_SIMULATOR)
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:@"/Applications/Cydia.app"] ||
-        [[NSFileManager defaultManager] fileExistsAtPath:@"/Library/MobileSubstrate/MobileSubstrate.dylib"] ||
-        [[NSFileManager defaultManager] fileExistsAtPath:@"/bin/bash"] ||
-        [[NSFileManager defaultManager] fileExistsAtPath:@"/usr/sbin/sshd"] ||
-        [[NSFileManager defaultManager] fileExistsAtPath:@"/etc/apt"] ||
-        [[NSFileManager defaultManager] fileExistsAtPath:@"/private/var/lib/apt/"] ||
-        [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"cydia://package/com.example.package"]])  {
-        return YES;
-    }
-    
-    FILE *f = NULL ;
-    if ((f = fopen("/bin/bash", "r")) ||
-        (f = fopen("/Applications/Cydia.app", "r")) ||
-        (f = fopen("/Library/MobileSubstrate/MobileSubstrate.dylib", "r")) ||
-        (f = fopen("/usr/sbin/sshd", "r")) ||
-        (f = fopen("/etc/apt", "r")))  {
-        fclose(f);
-        return YES;
-    }
-    fclose(f);
-    
-    NSError *error;
-    NSString *stringToBeWritten = @"This is a test.";
-    [stringToBeWritten writeToFile:@"/private/jailbreak.txt" atomically:YES encoding:NSUTF8StringEncoding error:&error];
-    [[NSFileManager defaultManager] removeItemAtPath:@"/private/jailbreak.txt" error:nil];
-    if(error == nil)
-    {
-        return YES;
-    }
-    
-#endif
-    
-    return NO;
 }
 
 @end

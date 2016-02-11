@@ -16,9 +16,19 @@
 		7B3B28691C63428000270462 /* IBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3B28671C63428000270462 /* IBViewController.m */; };
 		7B3B286A1C63428000270462 /* IBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B3B28681C63428000270462 /* IBViewController.xib */; };
 		7B3C2C421C68E9DF00B282F0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B3C2C411C68E9DF00B282F0 /* CoreBluetooth.framework */; };
-		7B3C2C451C6A54C000B282F0 /* AiChecksum.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3C2C441C6A54C000B282F0 /* AiChecksum.m */; };
 		7B3C2C4F1C6AEE4900B282F0 /* richtextfile.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7B3C2C4E1C6AEE4900B282F0 /* richtextfile.rtf */; };
+		7B3C2C6E1C6C832E00B282F0 /* libDeviceChecks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B3C2C6A1C6C6E4A00B282F0 /* libDeviceChecks.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B3C2C691C6C6E4A00B282F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B3C2C651C6C6E4900B282F0 /* DeviceChecks.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7B3C2C591C6C6E4900B282F0;
+			remoteInfo = DeviceChecks;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7B3B284C1C6340EB00270462 /* Signature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Signature.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,9 +45,8 @@
 		7B3B28671C63428000270462 /* IBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBViewController.m; sourceTree = "<group>"; };
 		7B3B28681C63428000270462 /* IBViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IBViewController.xib; sourceTree = "<group>"; };
 		7B3C2C411C68E9DF00B282F0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		7B3C2C431C6A546D00B282F0 /* AiChecksum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AiChecksum.h; sourceTree = "<group>"; };
-		7B3C2C441C6A54C000B282F0 /* AiChecksum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AiChecksum.m; sourceTree = "<group>"; };
 		7B3C2C4E1C6AEE4900B282F0 /* richtextfile.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = richtextfile.rtf; sourceTree = "<group>"; };
+		7B3C2C651C6C6E4900B282F0 /* DeviceChecks.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DeviceChecks.xcodeproj; path = DeviceChecks/DeviceChecks.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B3C2C6E1C6C832E00B282F0 /* libDeviceChecks.a in Frameworks */,
 				7B3C2C421C68E9DF00B282F0 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,6 +65,7 @@
 		7B3B28431C6340EB00270462 = {
 			isa = PBXGroup;
 			children = (
+				7B3C2C651C6C6E4900B282F0 /* DeviceChecks.xcodeproj */,
 				7B3C2C411C68E9DF00B282F0 /* CoreBluetooth.framework */,
 				7B3B284E1C6340EB00270462 /* Signature */,
 				7B3B284D1C6340EB00270462 /* Products */,
@@ -86,8 +97,6 @@
 				7B3B28661C63428000270462 /* IBViewController.h */,
 				7B3B28671C63428000270462 /* IBViewController.m */,
 				7B3B28681C63428000270462 /* IBViewController.xib */,
-				7B3C2C431C6A546D00B282F0 /* AiChecksum.h */,
-				7B3C2C441C6A54C000B282F0 /* AiChecksum.m */,
 			);
 			path = Signature;
 			sourceTree = "<group>";
@@ -105,6 +114,14 @@
 			children = (
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		7B3C2C661C6C6E4900B282F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B3C2C6A1C6C6E4A00B282F0 /* libDeviceChecks.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,12 +170,28 @@
 			mainGroup = 7B3B28431C6340EB00270462;
 			productRefGroup = 7B3B284D1C6340EB00270462 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7B3C2C661C6C6E4900B282F0 /* Products */;
+					ProjectRef = 7B3C2C651C6C6E4900B282F0 /* DeviceChecks.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7B3B284B1C6340EB00270462 /* Signature */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7B3C2C6A1C6C6E4A00B282F0 /* libDeviceChecks.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDeviceChecks.a;
+			remoteRef = 7B3C2C691C6C6E4A00B282F0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7B3B284A1C6340EB00270462 /* Resources */ = {
@@ -180,7 +213,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B3C2C451C6A54C000B282F0 /* AiChecksum.m in Sources */,
 				7B3B28571C6340EB00270462 /* ViewController.m in Sources */,
 				7B3B28541C6340EB00270462 /* AppDelegate.m in Sources */,
 				7B3B28511C6340EB00270462 /* main.m in Sources */,
@@ -297,9 +329,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = $SOURCE_ROOT/include;
 				INFOPLIST_FILE = Signature/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				"MTL_ENABLE_DEBUG_INFO[arch=*]" = YES;
+				OTHER_LDFLAGS = " -ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sureshballa.signature;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -311,8 +345,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = $SOURCE_ROOT/include;
 				INFOPLIST_FILE = Signature/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = " -ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sureshballa.signature;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

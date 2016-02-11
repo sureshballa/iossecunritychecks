@@ -1,12 +1,12 @@
 //
-//  AiChecksum.m
-//  Signature
+//  ChecksumUtilities.m
+//  DeviceChecks
 //
-//  Created by Suresh.Balla on 09/02/16.
-//  Copyright © 2016 Suresh.Balla. All rights reserved.
+//  Created by Suresh.Balla on 11/02/16.
+//  Copyright © 2016 sureshballa. All rights reserved.
 //
 
-#import "AiChecksum.h"
+#import "ChecksumUtilities.h"
 
 @implementation AiChecksum
 
